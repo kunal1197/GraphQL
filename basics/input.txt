@@ -1,0 +1,67 @@
+POST Request (Mutation)
+
+-------I/P-----
+
+mutation{
+  createCourse(input: {
+    courseName: "JS Bootcamp"
+    price: 20
+    stack: WEB
+    teachingAssists: [
+      {
+        firstName: "Kunal"
+        lastName: "Mehrotra"
+        experience: 1
+      },
+      {
+        firstName: "Rahul"
+        lastName: "Gupta"
+        experience: 4
+      }
+    ]
+  }) {
+    id,
+    courseName
+  }
+}
+
+-----O/P------
+{
+  "data": {
+    "createCourse": {
+      "id": "yfZu89o-BYiD3nXtfG4hS",
+      "courseName": "JS Bootcamp"
+    }
+  }
+}
+
+GET Request (Query)
+
+-----I/P-----
+
+query{
+  getCourse(id: "TmU2Lj8F4eV_uex6GXwRT") {
+    id
+    teachingAssists {
+      experience
+    }
+  }
+}
+
+-----O/P------
+
+{
+  "data": {
+    "getCourse": {
+      "id": "TmU2Lj8F4eV_uex6GXwRT",
+      "teachingAssists": [
+        {
+          "experience": 1
+        },
+        {
+          "experience": 4
+        }
+      ]
+    }
+  }
+}
